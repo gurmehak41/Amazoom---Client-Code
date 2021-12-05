@@ -32,13 +32,27 @@ namespace AmazoomClient
             Debug.WriteLine($"Data received from server: {e.MessageString}");
         }
 
-		private void buttonConnectServer_Click(object sender, EventArgs e)
-		{
-            this.client = new SimpleTcpClient().Connect(textBoxIPAddr.Text, Convert.ToInt32(textBoxPort.Text));
-            this.client.StringEncoder = Encoding.UTF8;
-            this.client.Delimiter = 0x13;  // enter
-            this.client.StringEncoder = Encoding.UTF8;
-            this.client.DelimiterDataReceived += DataReceived;
+        private void buttonConnectServer_Click(object sender, EventArgs e)
+        {
+            if (buttonConnectServer.Text == "Connect To Server")
+            {
+                this.client = new SimpleTcpClient().Connect(textBoxIPAddr.Text, Convert.ToInt32(textBoxPort.Text));
+                this.client.StringEncoder = Encoding.UTF8;
+                this.client.Delimiter = 0x13;  // enter
+                this.client.StringEncoder = Encoding.UTF8;
+                this.client.DelimiterDataReceived += DataReceived;
+
+                this.client.WriteLine("ClientStart/" + textBoxClientID.Text + "/-/-");
+
+                buttonConnectServer.Text = "Disconnect";
+            }
+            else
+            {
+                this.client.WriteLine("ClientStop/" + textBoxClientID.Text + "/-/-");
+                this.client.Disconnect();
+                buttonConnectServer.Text = "Connect To Server";
+            }
+
         }
 
 		private void buttonPlaceOrder_Click(object sender, EventArgs e)

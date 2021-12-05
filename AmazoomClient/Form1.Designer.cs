@@ -170,7 +170,7 @@ namespace AmazoomClient
 			this.buttonConnectServer.Name = "buttonConnectServer";
 			this.buttonConnectServer.Size = new System.Drawing.Size(206, 37);
 			this.buttonConnectServer.TabIndex = 12;
-			this.buttonConnectServer.Text = "Connect to Server";
+			this.buttonConnectServer.Text = "Connect To Server";
 			this.buttonConnectServer.UseVisualStyleBackColor = true;
 			this.buttonConnectServer.Click += new System.EventHandler(this.buttonConnectServer_Click);
 			// 
