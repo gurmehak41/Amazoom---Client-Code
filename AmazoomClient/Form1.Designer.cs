@@ -34,7 +34,7 @@ namespace AmazoomClient
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBoxQtyApples = new System.Windows.Forms.TextBox();
-			this.textBoxQtyShampoo = new System.Windows.Forms.TextBox();
+			this.textBoxQtyOrange = new System.Windows.Forms.TextBox();
 			this.buttonPlaceOrder = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
@@ -68,9 +68,9 @@ namespace AmazoomClient
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(46, 134);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(73, 25);
+			this.label2.Size = new System.Drawing.Size(63, 25);
 			this.label2.TabIndex = 1;
-			this.label2.Text = "Apples";
+			this.label2.Text = "Apple";
 			// 
 			// label3
 			// 
@@ -78,9 +78,9 @@ namespace AmazoomClient
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.Location = new System.Drawing.Point(46, 180);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(97, 25);
+			this.label3.Size = new System.Drawing.Size(78, 25);
 			this.label3.TabIndex = 2;
-			this.label3.Text = "Shampoo";
+			this.label3.Text = "Orange";
 			// 
 			// textBoxQtyApples
 			// 
@@ -90,13 +90,13 @@ namespace AmazoomClient
 			this.textBoxQtyApples.Size = new System.Drawing.Size(100, 30);
 			this.textBoxQtyApples.TabIndex = 3;
 			// 
-			// textBoxQtyShampoo
+			// textBoxQtyOrange
 			// 
-			this.textBoxQtyShampoo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxQtyShampoo.Location = new System.Drawing.Point(149, 175);
-			this.textBoxQtyShampoo.Name = "textBoxQtyShampoo";
-			this.textBoxQtyShampoo.Size = new System.Drawing.Size(100, 30);
-			this.textBoxQtyShampoo.TabIndex = 4;
+			this.textBoxQtyOrange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBoxQtyOrange.Location = new System.Drawing.Point(149, 175);
+			this.textBoxQtyOrange.Name = "textBoxQtyOrange";
+			this.textBoxQtyOrange.Size = new System.Drawing.Size(100, 30);
+			this.textBoxQtyOrange.TabIndex = 4;
 			// 
 			// buttonPlaceOrder
 			// 
@@ -216,7 +216,7 @@ namespace AmazoomClient
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.buttonPlaceOrder);
-			this.Controls.Add(this.textBoxQtyShampoo);
+			this.Controls.Add(this.textBoxQtyOrange);
 			this.Controls.Add(this.textBoxQtyApples);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -239,7 +239,7 @@ namespace AmazoomClient
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox textBoxQtyApples;
-		private System.Windows.Forms.TextBox textBoxQtyShampoo;
+		private System.Windows.Forms.TextBox textBoxQtyOrange;
 		private System.Windows.Forms.Button buttonPlaceOrder;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;

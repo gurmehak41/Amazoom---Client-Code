@@ -37,7 +37,6 @@ namespace AmazoomClient
             if (buttonConnectServer.Text == "Connect To Server")
             {
                 this.client = new SimpleTcpClient().Connect(textBoxIPAddr.Text, Convert.ToInt32(textBoxPort.Text));
-                this.client.StringEncoder = Encoding.UTF8;
                 this.client.Delimiter = 0x13;  // enter
                 this.client.StringEncoder = Encoding.UTF8;
                 this.client.DelimiterDataReceived += DataReceived;
@@ -60,13 +59,13 @@ namespace AmazoomClient
             string message = "";
 
             //Build up message
-            message = "OrderFromClient/" + textBoxClientID.Text + "/";
+            message = "OrderFromClient/" + textBoxClientID.Text + "/-/";
 
             if (textBoxQtyApples.Text != "")
-                message += "apples" + textBoxQtyApples.Text + "/";
+                message += "Apple*" + textBoxQtyApples.Text + ",";
 
-            if (textBoxQtyShampoo.Text != "")
-                message += "shampoo" + textBoxQtyShampoo.Text + "/";
+            if (textBoxQtyOrange.Text != "")
+                message += "Orange*" + textBoxQtyOrange.Text + ",";
 
             this.client.WriteLine(message);
         }
