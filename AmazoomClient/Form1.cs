@@ -7,14 +7,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SimpleTCP;
+using System.Diagnostics;
+using System.Collections.Concurrent;
 
 namespace AmazoomClient
 {
     public partial class Form1 : Form
     {
+        private  SimpleTcpClient client;
+
         public Form1()
         {
             InitializeComponent();
         }
-    }
+
+		public void Form1_Load(object sender, EventArgs e)
+		{
+
+        }
+
+        private void DataReceived(object sender, SimpleTCP.Message e)
+        {
+            Debug.WriteLine($"Data received from server: {e.MessageString}");
+        }
+
+		private void buttonConnectServer_Click(object sender, EventArgs e)
+		{
+            this.client = new SimpleTcpClient().Connect(textBoxIPAddr.Text, Convert.ToInt32(textBoxPort.Text));
+            this.client.StringEncoder = Encoding.UTF8;
+            this.client.Delimiter = 0x13;  // enter
+            this.client.StringEncoder = Encoding.UTF8;
+            this.client.DelimiterDataReceived += DataReceived;
+        }
+
+		private void buttonPlaceOrder_Click(object sender, EventArgs e)
+		{
+            string message = "";
+
+            //Build up message
+            message = "OrderFromClient/" + textBoxClientID.Text + "/";
+
+            if (textBoxQtyApples.Text != "")
+                message += "apples" + textBoxQtyApples.Text + "/";
+
+            if (textBoxQtyShampoo.Text != "")
+                message += "shampoo" + textBoxQtyShampoo.Text + "/";
+
+            this.client.WriteLine(message);
+        }
+	}
 }
