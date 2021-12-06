@@ -101,6 +101,43 @@ namespace AmazoomClient
                 }
                 inventoryChanged = true;
             }
+
+            if (splitMessage[0] == "ClientDeleteProduct")
+            {
+                string[] tempProduct = splitMessage[3].Split('*');
+                if (tempProduct.Length == 2)
+                {
+                    string productName = tempProduct[0];
+                    int qtyAvailable = Convert.ToInt32(tempProduct[1]);
+
+                    //Check if prouduct exists in product list
+                    int j = 0;
+                    bool productFound = false;
+                    foreach (productInfo product in productList)
+                    {
+                        if (productName == product.Name)
+                        {
+                            qtyAvailable = productList[j].Quantity;
+                            productFound = true;
+
+                            //productList.Remove(new productInfo(productName, qtyAvailable));
+                            productList.RemoveAt(j);
+                            inventoryChanged = true;
+                            break;
+                        }
+                        j++;
+                    }
+
+                    //Remove from product list if it currently exist
+                    /*
+                    if (productFound)
+                    {
+                        productList.Remove(new productInfo(productName, qtyAvailable));
+                        inventoryChanged = true;
+                    }
+                    */
+                }
+        }
         }
 
         private void buttonConnectServer_Click(object sender, EventArgs e)
