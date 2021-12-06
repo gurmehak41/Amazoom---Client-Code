@@ -59,11 +59,11 @@ namespace AmazoomClient
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-			this.label1.Location = new System.Drawing.Point(196, 20);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.Green;
+			this.label1.Location = new System.Drawing.Point(158, 6);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(281, 31);
+			this.label1.Size = new System.Drawing.Size(299, 31);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Amazoom Order Form";
 			// 
@@ -71,7 +71,7 @@ namespace AmazoomClient
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(424, 89);
+			this.label4.Location = new System.Drawing.Point(369, 49);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(92, 25);
 			this.label4.TabIndex = 6;
@@ -81,7 +81,7 @@ namespace AmazoomClient
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(424, 140);
+			this.label5.Location = new System.Drawing.Point(369, 85);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(114, 25);
 			this.label5.TabIndex = 7;
@@ -91,7 +91,7 @@ namespace AmazoomClient
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(424, 194);
+			this.label6.Location = new System.Drawing.Point(369, 123);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(53, 25);
 			this.label6.TabIndex = 8;
@@ -100,7 +100,7 @@ namespace AmazoomClient
 			// textBoxPort
 			// 
 			this.textBoxPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxPort.Location = new System.Drawing.Point(535, 191);
+			this.textBoxPort.Location = new System.Drawing.Point(489, 123);
 			this.textBoxPort.Name = "textBoxPort";
 			this.textBoxPort.Size = new System.Drawing.Size(100, 30);
 			this.textBoxPort.TabIndex = 9;
@@ -108,7 +108,7 @@ namespace AmazoomClient
 			// textBoxIPAddr
 			// 
 			this.textBoxIPAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxIPAddr.Location = new System.Drawing.Point(535, 140);
+			this.textBoxIPAddr.Location = new System.Drawing.Point(489, 85);
 			this.textBoxIPAddr.Name = "textBoxIPAddr";
 			this.textBoxIPAddr.Size = new System.Drawing.Size(100, 30);
 			this.textBoxIPAddr.TabIndex = 10;
@@ -116,7 +116,7 @@ namespace AmazoomClient
 			// textBoxClientID
 			// 
 			this.textBoxClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxClientID.Location = new System.Drawing.Point(535, 89);
+			this.textBoxClientID.Location = new System.Drawing.Point(489, 49);
 			this.textBoxClientID.Name = "textBoxClientID";
 			this.textBoxClientID.Size = new System.Drawing.Size(100, 30);
 			this.textBoxClientID.TabIndex = 11;
@@ -124,9 +124,9 @@ namespace AmazoomClient
 			// buttonConnectServer
 			// 
 			this.buttonConnectServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonConnectServer.Location = new System.Drawing.Point(429, 248);
+			this.buttonConnectServer.Location = new System.Drawing.Point(374, 159);
 			this.buttonConnectServer.Name = "buttonConnectServer";
-			this.buttonConnectServer.Size = new System.Drawing.Size(206, 37);
+			this.buttonConnectServer.Size = new System.Drawing.Size(215, 37);
 			this.buttonConnectServer.TabIndex = 12;
 			this.buttonConnectServer.Text = "Connect To Server";
 			this.buttonConnectServer.UseVisualStyleBackColor = true;
@@ -140,9 +140,9 @@ namespace AmazoomClient
 			// pictureBox2
 			// 
 			this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox2.Location = new System.Drawing.Point(394, 80);
+			this.pictureBox2.Location = new System.Drawing.Point(348, 40);
 			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(262, 219);
+			this.pictureBox2.Size = new System.Drawing.Size(262, 166);
 			this.pictureBox2.TabIndex = 15;
 			this.pictureBox2.TabStop = false;
 			// 
@@ -150,7 +150,7 @@ namespace AmazoomClient
 			// 
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(32, 312);
+			this.label8.Location = new System.Drawing.Point(16, 221);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(129, 25);
 			this.label8.TabIndex = 16;
@@ -159,28 +159,30 @@ namespace AmazoomClient
 			// dataGridViewOrderStatus
 			// 
 			this.dataGridViewOrderStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridViewOrderStatus.Location = new System.Drawing.Point(28, 340);
+			this.dataGridViewOrderStatus.Location = new System.Drawing.Point(12, 249);
 			this.dataGridViewOrderStatus.Name = "dataGridViewOrderStatus";
+			this.dataGridViewOrderStatus.RowHeadersVisible = false;
 			this.dataGridViewOrderStatus.RowHeadersWidth = 51;
 			this.dataGridViewOrderStatus.RowTemplate.Height = 24;
-			this.dataGridViewOrderStatus.Size = new System.Drawing.Size(661, 131);
+			this.dataGridViewOrderStatus.Size = new System.Drawing.Size(603, 131);
 			this.dataGridViewOrderStatus.TabIndex = 17;
 			// 
 			// dataGridViewInventory
 			// 
 			this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridViewInventory.Location = new System.Drawing.Point(28, 512);
+			this.dataGridViewInventory.Location = new System.Drawing.Point(12, 421);
 			this.dataGridViewInventory.Name = "dataGridViewInventory";
+			this.dataGridViewInventory.RowHeadersVisible = false;
 			this.dataGridViewInventory.RowHeadersWidth = 51;
 			this.dataGridViewInventory.RowTemplate.Height = 24;
-			this.dataGridViewInventory.Size = new System.Drawing.Size(661, 151);
+			this.dataGridViewInventory.Size = new System.Drawing.Size(603, 151);
 			this.dataGridViewInventory.TabIndex = 18;
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(31, 91);
+			this.label9.Location = new System.Drawing.Point(16, 53);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(142, 25);
 			this.label9.TabIndex = 19;
@@ -190,7 +192,7 @@ namespace AmazoomClient
 			// 
 			this.label10.AutoSize = true;
 			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label10.Location = new System.Drawing.Point(31, 137);
+			this.label10.Location = new System.Drawing.Point(16, 92);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(133, 25);
 			this.label10.TabIndex = 20;
@@ -199,23 +201,23 @@ namespace AmazoomClient
 			// textBoxQtyToOrder
 			// 
 			this.textBoxQtyToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxQtyToOrder.Location = new System.Drawing.Point(179, 135);
+			this.textBoxQtyToOrder.Location = new System.Drawing.Point(164, 89);
 			this.textBoxQtyToOrder.Name = "textBoxQtyToOrder";
-			this.textBoxQtyToOrder.Size = new System.Drawing.Size(166, 30);
+			this.textBoxQtyToOrder.Size = new System.Drawing.Size(159, 30);
 			this.textBoxQtyToOrder.TabIndex = 21;
 			// 
 			// textBoxProductName
 			// 
 			this.textBoxProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxProductName.Location = new System.Drawing.Point(179, 91);
+			this.textBoxProductName.Location = new System.Drawing.Point(164, 53);
 			this.textBoxProductName.Name = "textBoxProductName";
-			this.textBoxProductName.Size = new System.Drawing.Size(166, 30);
+			this.textBoxProductName.Size = new System.Drawing.Size(159, 30);
 			this.textBoxProductName.TabIndex = 22;
 			// 
 			// buttonOrder
 			// 
 			this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonOrder.Location = new System.Drawing.Point(36, 249);
+			this.buttonOrder.Location = new System.Drawing.Point(23, 162);
 			this.buttonOrder.Name = "buttonOrder";
 			this.buttonOrder.Size = new System.Drawing.Size(300, 36);
 			this.buttonOrder.TabIndex = 23;
@@ -226,9 +228,9 @@ namespace AmazoomClient
 			// pictureBox1
 			// 
 			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox1.Location = new System.Drawing.Point(29, 78);
+			this.pictureBox1.Location = new System.Drawing.Point(14, 40);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(321, 221);
+			this.pictureBox1.Size = new System.Drawing.Size(321, 168);
 			this.pictureBox1.TabIndex = 24;
 			this.pictureBox1.TabStop = false;
 			// 
@@ -236,7 +238,7 @@ namespace AmazoomClient
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(32, 484);
+			this.label2.Location = new System.Drawing.Point(16, 393);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(150, 25);
 			this.label2.TabIndex = 25;
@@ -246,7 +248,8 @@ namespace AmazoomClient
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(721, 688);
+			this.BackColor = System.Drawing.Color.GhostWhite;
+			this.ClientSize = new System.Drawing.Size(632, 592);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.buttonOrder);
 			this.Controls.Add(this.textBoxProductName);
