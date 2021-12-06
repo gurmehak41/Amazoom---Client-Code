@@ -21,6 +21,8 @@ namespace AmazoomClient
         private Dictionary<int, orderInfo> orderDict = new Dictionary<int, orderInfo>();
         private List<productInfo> productList = new List<productInfo>();
         int orderCounter = 0;
+        bool orderListChanged = true;
+        bool inventoryChanged = true;
 
         public Form1()
         {
@@ -61,6 +63,7 @@ namespace AmazoomClient
                     }
                     orderList.Add(new orderInfo(identifier,order.ProductName,order.QtyOrdered,order.Status));
                 }
+                orderListChanged = true;
             }
 
             if (splitMessage[0] == "InventoryToClient")
@@ -96,6 +99,7 @@ namespace AmazoomClient
                             productList.Add(new productInfo(productName, qtyAvailable));
                     }
                 }
+                inventoryChanged = true;
             }
         }
 
@@ -124,12 +128,23 @@ namespace AmazoomClient
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
+            if (orderListChanged)
+            {
+                dataGridViewOrderStatus.DataSource = null;  // need this to work
+                dataGridViewOrderStatus.DataSource = this.orderList;
 
-            dataGridViewOrderStatus.DataSource = null;  // need this to work
-            dataGridViewOrderStatus.DataSource = this.orderList;
+                orderListChanged = false;
+            }
 
-            dataGridViewInventory.DataSource = null;  // need this to work
-            dataGridViewInventory.DataSource = this.productList;
+            if (inventoryChanged)
+            {
+                dataGridViewInventory.DataSource = null;  // need this to work
+                dataGridViewInventory.DataSource = this.productList;
+
+                inventoryChanged = false;
+            }
+
+            
         }
 
 		private void buttonOrder_Click(object sender, EventArgs e)
@@ -150,6 +165,8 @@ namespace AmazoomClient
             //Populate OrderDict 
             orderDict.Add(identifier, new orderInfo(identifier, textBoxProductName.Text, Convert.ToInt32(textBoxQtyToOrder.Text), "Ordered"));
             orderList.Add(new orderInfo(identifier, textBoxProductName.Text, Convert.ToInt32(textBoxQtyToOrder.Text), "Ordered"));
+
+            orderListChanged = true;
         }
 
 	}
