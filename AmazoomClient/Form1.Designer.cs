@@ -49,9 +49,11 @@ namespace AmazoomClient
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.dataGridViewOrderStatus = new System.Windows.Forms.DataGridView();
+			this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderStatus)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -230,11 +232,22 @@ namespace AmazoomClient
 			this.dataGridViewOrderStatus.Size = new System.Drawing.Size(404, 174);
 			this.dataGridViewOrderStatus.TabIndex = 17;
 			// 
+			// dataGridViewInventory
+			// 
+			this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridViewInventory.Location = new System.Drawing.Point(465, 340);
+			this.dataGridViewInventory.Name = "dataGridViewInventory";
+			this.dataGridViewInventory.RowHeadersWidth = 51;
+			this.dataGridViewInventory.RowTemplate.Height = 24;
+			this.dataGridViewInventory.Size = new System.Drawing.Size(404, 174);
+			this.dataGridViewInventory.TabIndex = 18;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(638, 539);
+			this.ClientSize = new System.Drawing.Size(949, 688);
+			this.Controls.Add(this.dataGridViewInventory);
 			this.Controls.Add(this.dataGridViewOrderStatus);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label7);
@@ -259,6 +272,7 @@ namespace AmazoomClient
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderStatus)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -285,6 +299,7 @@ namespace AmazoomClient
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.DataGridView dataGridViewOrderStatus;
+		private System.Windows.Forms.DataGridView dataGridViewInventory;
 	}
 }
 
