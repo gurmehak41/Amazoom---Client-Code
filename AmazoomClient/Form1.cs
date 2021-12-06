@@ -18,6 +18,7 @@ namespace AmazoomClient
     {
         private  SimpleTcpClient client;
         private List<orderInfo> orderList = new List<orderInfo>();
+        private Dictionary<int, orderInfo> orderDict = new Dictionary<int, orderInfo>();
         private List<productInfo> productList = new List<productInfo>();
         int orderCounter = 0;
 
@@ -39,24 +40,27 @@ namespace AmazoomClient
 
             splitMessage = message.Split('/');
 
-            if (splitMessage[0] == "OrderToCLient")
+            if (splitMessage[0] == "OrderToClient")
             {
                 identifier = Convert.ToInt32(splitMessage[2]);
 
-                //Check if identifier already exists
-                int i = 0;
-                foreach (orderInfo order in orderList)
+                if (orderDict.ContainsKey(identifier))
                 {
-                    if ((identifier / 1000 == order.ClientId) && (identifier % 1000 == order.OrderId))
+                    orderInfo order = orderDict[identifier];
+
+                    //Check if order already exists
+                    int i = 0;
+                    foreach (orderInfo item in orderList)
                     {
-                        orderList[i].Status = splitMessage[3];
-                        return;
-
+                        if (identifier == item.OrderId)
+                        {
+                            orderList[i].Status = splitMessage[3];
+                            return;
+                        }
+                        i++;
                     }
-                    i++;
+                    orderList.Add(new orderInfo(identifier,order.ProductName,order.QtyOrdered,order.Status));
                 }
-
-                orderList.Add(new orderInfo(identifier, splitMessage[3]));
             }
 
             if (splitMessage[0] == "InventoryToClient")
@@ -114,7 +118,18 @@ namespace AmazoomClient
 
         }
 
-		private void buttonPlaceOrder_Click(object sender, EventArgs e)
+
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+
+            dataGridViewOrderStatus.DataSource = null;  // need this to work
+            dataGridViewOrderStatus.DataSource = this.orderList;
+
+            dataGridViewInventory.DataSource = null;  // need this to work
+            dataGridViewInventory.DataSource = this.productList;
+        }
+
+		private void buttonOrder_Click(object sender, EventArgs e)
 		{
             string message = "";
             int identifier = Convert.ToInt32(textBoxClientID.Text) * 1000 + orderCounter;
@@ -124,41 +139,96 @@ namespace AmazoomClient
             //Build up message
             message = "OrderFromClient/" + Convert.ToString(identifier) + "/-/";
 
-            if (textBoxQtyApples.Text != "")
-                message += "Apple*" + textBoxQtyApples.Text + ",";
-
-            if (textBoxQtyOrange.Text != "")
-                message += "Orange*" + textBoxQtyOrange.Text + ",";
+            if (textBoxProductName.Text != "")
+                message += textBoxProductName.Text + "*" + textBoxQtyToOrder.Text + ",";
 
             this.client.WriteLine(message);
 
+            //Populate OrderDict 
+            orderDict.Add(identifier, new orderInfo(identifier, textBoxProductName.Text, Convert.ToInt32(textBoxQtyToOrder.Text), "Ordered"));
+            orderList.Add(new orderInfo(identifier, textBoxProductName.Text, Convert.ToInt32(textBoxQtyToOrder.Text), "Ordered"));
         }
 
-		private void timer1_Tick(object sender, EventArgs e)
+		private void textBoxProductName_TextChanged(object sender, EventArgs e)
 		{
-            dataGridViewOrderStatus.DataSource = null;  // need this to work
-            dataGridViewOrderStatus.DataSource = this.orderList;
 
-            dataGridViewInventory.DataSource = null;  // need this to work
-            dataGridViewInventory.DataSource = this.productList;
-        }
+		}
+
+		private void textBoxQtyToOrder_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label10_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label9_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void textBoxClientID_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void textBoxIPAddr_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void textBoxPort_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label6_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label5_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void pictureBox2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 
 	public class orderInfo
     {
-        public int ClientId
+        public int OrderId
         { get; }
 
-        public int OrderId
+        public string ProductName
+        { get; }
+
+        public int QtyOrdered
         { get; }
 
         public string Status
         { get; set; }
 
-        public orderInfo(int combinedId, string status)
+        public orderInfo(int combinedId, string productName, int qty, string status)
         {
-            this.ClientId = combinedId / 1000;
-            this.OrderId = combinedId % 1000;
+            this.OrderId = combinedId;
+            this.ProductName = productName;
+            this.QtyOrdered = qty;
             this.Status = status;
         }
     }
