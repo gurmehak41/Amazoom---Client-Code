@@ -76,7 +76,6 @@ namespace AmazoomClient
 			this.label4.Size = new System.Drawing.Size(92, 25);
 			this.label4.TabIndex = 6;
 			this.label4.Text = "Client ID:";
-			this.label4.Click += new System.EventHandler(this.label4_Click);
 			// 
 			// label5
 			// 
@@ -87,7 +86,6 @@ namespace AmazoomClient
 			this.label5.Size = new System.Drawing.Size(114, 25);
 			this.label5.TabIndex = 7;
 			this.label5.Text = "IP Address:";
-			this.label5.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// label6
 			// 
@@ -98,7 +96,6 @@ namespace AmazoomClient
 			this.label6.Size = new System.Drawing.Size(53, 25);
 			this.label6.TabIndex = 8;
 			this.label6.Text = "Port:";
-			this.label6.Click += new System.EventHandler(this.label6_Click);
 			// 
 			// textBoxPort
 			// 
@@ -107,7 +104,6 @@ namespace AmazoomClient
 			this.textBoxPort.Name = "textBoxPort";
 			this.textBoxPort.Size = new System.Drawing.Size(100, 30);
 			this.textBoxPort.TabIndex = 9;
-			this.textBoxPort.TextChanged += new System.EventHandler(this.textBoxPort_TextChanged);
 			// 
 			// textBoxIPAddr
 			// 
@@ -116,7 +112,6 @@ namespace AmazoomClient
 			this.textBoxIPAddr.Name = "textBoxIPAddr";
 			this.textBoxIPAddr.Size = new System.Drawing.Size(100, 30);
 			this.textBoxIPAddr.TabIndex = 10;
-			this.textBoxIPAddr.TextChanged += new System.EventHandler(this.textBoxIPAddr_TextChanged);
 			// 
 			// textBoxClientID
 			// 
@@ -125,7 +120,6 @@ namespace AmazoomClient
 			this.textBoxClientID.Name = "textBoxClientID";
 			this.textBoxClientID.Size = new System.Drawing.Size(100, 30);
 			this.textBoxClientID.TabIndex = 11;
-			this.textBoxClientID.TextChanged += new System.EventHandler(this.textBoxClientID_TextChanged);
 			// 
 			// buttonConnectServer
 			// 
@@ -151,7 +145,6 @@ namespace AmazoomClient
 			this.pictureBox2.Size = new System.Drawing.Size(262, 219);
 			this.pictureBox2.TabIndex = 15;
 			this.pictureBox2.TabStop = false;
-			this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
 			// 
 			// label8
 			// 
@@ -192,7 +185,6 @@ namespace AmazoomClient
 			this.label9.Size = new System.Drawing.Size(142, 25);
 			this.label9.TabIndex = 19;
 			this.label9.Text = "Product Name:";
-			this.label9.Click += new System.EventHandler(this.label9_Click);
 			// 
 			// label10
 			// 
@@ -203,7 +195,6 @@ namespace AmazoomClient
 			this.label10.Size = new System.Drawing.Size(133, 25);
 			this.label10.TabIndex = 20;
 			this.label10.Text = "Qty To Order:";
-			this.label10.Click += new System.EventHandler(this.label10_Click);
 			// 
 			// textBoxQtyToOrder
 			// 
@@ -212,7 +203,6 @@ namespace AmazoomClient
 			this.textBoxQtyToOrder.Name = "textBoxQtyToOrder";
 			this.textBoxQtyToOrder.Size = new System.Drawing.Size(166, 30);
 			this.textBoxQtyToOrder.TabIndex = 21;
-			this.textBoxQtyToOrder.TextChanged += new System.EventHandler(this.textBoxQtyToOrder_TextChanged);
 			// 
 			// textBoxProductName
 			// 
@@ -221,7 +211,6 @@ namespace AmazoomClient
 			this.textBoxProductName.Name = "textBoxProductName";
 			this.textBoxProductName.Size = new System.Drawing.Size(166, 30);
 			this.textBoxProductName.TabIndex = 22;
-			this.textBoxProductName.TextChanged += new System.EventHandler(this.textBoxProductName_TextChanged);
 			// 
 			// buttonOrder
 			// 
@@ -242,7 +231,6 @@ namespace AmazoomClient
 			this.pictureBox1.Size = new System.Drawing.Size(321, 221);
 			this.pictureBox1.TabIndex = 24;
 			this.pictureBox1.TabStop = false;
-			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// label2
 			// 

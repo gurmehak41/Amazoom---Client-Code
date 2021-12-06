@@ -149,65 +149,6 @@ namespace AmazoomClient
             orderList.Add(new orderInfo(identifier, textBoxProductName.Text, Convert.ToInt32(textBoxQtyToOrder.Text), "Ordered"));
         }
 
-		private void textBoxProductName_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBoxQtyToOrder_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label10_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label9_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBoxClientID_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBoxIPAddr_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBoxPort_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label6_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label5_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label4_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void pictureBox2_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void pictureBox1_Click(object sender, EventArgs e)
-		{
-
-		}
 	}
 
 	public class orderInfo
