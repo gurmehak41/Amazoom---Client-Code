@@ -73,25 +73,28 @@ namespace AmazoomClient
                 for (i = 0; i < productMessageString.Length; i++)
                 {
                     string[] tempProduct = productMessageString[i].Split('*');
-                    string productName = tempProduct[0];
-                    int qtyAvailable = Convert.ToInt32(tempProduct[1]);
-
-                    //Check if prouduct already exists in product list
-                    int j = 0;
-                    productFound = false;
-                    foreach (productInfo product in productList)
+                    if (tempProduct.Length == 2)
                     {
-                        if (productName == product.Name)
-                        {
-                            productList[j].Quantity = qtyAvailable;
-                            productFound = true;
-                        }
-                        j++;
-                    }
+                        string productName = tempProduct[0];
+                        int qtyAvailable = Convert.ToInt32(tempProduct[1]);
 
-                    //Add to product list if it doesn't currently exist there already
-                    if (!productFound)
-                        productList.Add(new productInfo(productName, qtyAvailable));
+                        //Check if prouduct already exists in product list
+                        int j = 0;
+                        productFound = false;
+                        foreach (productInfo product in productList)
+                        {
+                            if (productName == product.Name)
+                            {
+                                productList[j].Quantity = qtyAvailable;
+                                productFound = true;
+                            }
+                            j++;
+                        }
+
+                        //Add to product list if it doesn't currently exist there already
+                        if (!productFound)
+                            productList.Add(new productInfo(productName, qtyAvailable));
+                    }
                 }
             }
         }
