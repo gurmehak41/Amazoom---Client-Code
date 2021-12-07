@@ -68,8 +68,8 @@ namespace AmazoomClient
         {
             InitializeComponent();
 
-            productList = new List<ProductInfo>();
-            orderList = new List<OrderInfo>();
+            this.productList = new List<ProductInfo>();
+            this.orderList = new List<OrderInfo>();
 
             orderIdCounter = 0;
             productListChanged = true;
@@ -112,6 +112,7 @@ namespace AmazoomClient
             int orderId;
             if (messageCommand == "InventoryToClient")
             {
+                this.productList.Clear();
                 bool productFound;
                 string[] productQuantities = messagePayload.Split(',');
                 // Go through each of the products sent in the payload
@@ -148,7 +149,6 @@ namespace AmazoomClient
             {
                 orderId = Convert.ToInt32(messageReceiver);
 
-                // SEPARATE
                 int i = 0;
                 foreach (var orderInfo in this.orderList)
                 {
@@ -167,7 +167,7 @@ namespace AmazoomClient
                 {
                     string product = productQuantity[0];
 
-                    //Check if prouduct exists
+                    //Check if product exists
                     int j = 0;
                     foreach (ProductInfo productInfo in this.productList)
                     {
@@ -231,13 +231,23 @@ namespace AmazoomClient
             if (this.productListChanged)
             {
                 dataGridViewInventory.DataSource = null;  // need this to work
-                dataGridViewInventory.DataSource = this.productList;
+                List<ProductInfo> temp = new List<ProductInfo>();
+                foreach (var productInfo in this.productList)
+                {
+                    temp.Add(productInfo);
+                }
+                dataGridViewInventory.DataSource = temp;
                 this.productListChanged = false;
             }
             if (this.orderListChanged)
             {
                 dataGridViewOrderStatus.DataSource = null;  // need this to work
-                dataGridViewOrderStatus.DataSource = this.orderList;
+                List<OrderInfo> temp = new List<OrderInfo>();
+                foreach (var orderInfo in this.orderList)
+                {
+                    temp.Add(orderInfo);
+                }
+                dataGridViewInventory.DataSource = temp;
                 this.orderListChanged = false;
             }
         }

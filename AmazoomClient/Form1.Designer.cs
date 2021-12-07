@@ -93,6 +93,7 @@ namespace AmazoomClient
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.Size = new System.Drawing.Size(76, 26);
             this.textBoxPort.TabIndex = 9;
+            this.textBoxPort.Text = "8911";
             // 
             // textBoxIPAddr
             // 
@@ -102,6 +103,7 @@ namespace AmazoomClient
             this.textBoxIPAddr.Name = "textBoxIPAddr";
             this.textBoxIPAddr.Size = new System.Drawing.Size(76, 26);
             this.textBoxIPAddr.TabIndex = 10;
+            this.textBoxIPAddr.Text = "127.0.0.1";
             // 
             // textBoxClientID
             // 
@@ -111,6 +113,7 @@ namespace AmazoomClient
             this.textBoxClientID.Name = "textBoxClientID";
             this.textBoxClientID.Size = new System.Drawing.Size(76, 26);
             this.textBoxClientID.TabIndex = 11;
+            this.textBoxClientID.Text = "2";
             // 
             // buttonConnectServer
             // 
@@ -142,10 +145,12 @@ namespace AmazoomClient
             // 
             // dataGridViewOrderStatus
             // 
+            this.dataGridViewOrderStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewOrderStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrderStatus.Location = new System.Drawing.Point(11, 293);
             this.dataGridViewOrderStatus.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewOrderStatus.Name = "dataGridViewOrderStatus";
+            this.dataGridViewOrderStatus.ReadOnly = true;
             this.dataGridViewOrderStatus.RowHeadersVisible = false;
             this.dataGridViewOrderStatus.RowHeadersWidth = 51;
             this.dataGridViewOrderStatus.RowTemplate.Height = 24;
@@ -154,10 +159,12 @@ namespace AmazoomClient
             // 
             // dataGridViewInventory
             // 
+            this.dataGridViewInventory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInventory.Location = new System.Drawing.Point(14, 173);
             this.dataGridViewInventory.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
+            this.dataGridViewInventory.ReadOnly = true;
             this.dataGridViewInventory.RowHeadersVisible = false;
             this.dataGridViewInventory.RowHeadersWidth = 51;
             this.dataGridViewInventory.RowTemplate.Height = 24;
