@@ -13,237 +13,275 @@ using System.Collections.Concurrent;
 
 namespace AmazoomClient
 {
-
     public partial class Form1 : Form
     {
-        private  SimpleTcpClient client;
-        private List<orderInfo> orderList = new List<orderInfo>();
-        private Dictionary<int, orderInfo> orderDict = new Dictionary<int, orderInfo>();
-        private List<productInfo> productList = new List<productInfo>();
-        int orderCounter = 0;
-        bool orderListChanged = true;
-        bool inventoryChanged = true;
+
+        public class OrderInfo
+        {
+            public int Id
+            { get; }
+
+            public string Product
+            { get; }
+
+            public int Quantity
+            { get; }
+
+            public string Status
+            { get; set; }
+
+            public OrderInfo(int combinedId, string product, int quantity,
+                string status)
+            {
+                this.Id = combinedId;
+                this.Product = product;
+                this.Quantity = quantity;
+                this.Status = status;
+            }
+        }
+
+        public class ProductInfo
+        {
+            public string Name
+            { get; }
+
+            public int Quantity
+            { get; set; }
+
+            public ProductInfo(string name, int quantity)
+            {
+                this.Name = name;
+                this.Quantity = quantity;
+            }
+        }
+
+        private SimpleTcpClient client;
+        private List<ProductInfo> productList;
+        private List<OrderInfo> orderList;
+        int clientId;
+        int orderIdCounter;
+        bool productListChanged;
+        bool orderListChanged;
+        bool isServerConnected;
 
         public Form1()
         {
             InitializeComponent();
+
+            productList = new List<ProductInfo>();
+            orderList = new List<OrderInfo>();
+
+            orderIdCounter = 0;
+            productListChanged = true;
+            orderListChanged = true;
         }
 
-		public void Form1_Load(object sender, EventArgs e)
-		{
-
+        private void sendMessage(string command, string sender, string receiver,
+            string payload)
+        {
+            if (string.IsNullOrEmpty(sender))
+            {
+                sender = "-";
+            }
+            if (string.IsNullOrEmpty(receiver))
+            {
+                receiver = "-";
+            }
+            if (string.IsNullOrEmpty(payload))
+            {
+                payload = "-";
+            }
+            this.client.WriteLine(command + "/"
+                + sender + "/"
+                + receiver + "/"
+                + payload);
         }
 
         private void DataReceived(object sender, SimpleTCP.Message e)
         {
-            string message = e.MessageString;
-            string[] splitMessage;
-            int identifier;
-
-            splitMessage = message.Split('/');
-
-            if (splitMessage[0] == "OrderToClient")
+            string[] message = e.MessageString.Split('/');
+            if (message.Length != 4)
             {
-                identifier = Convert.ToInt32(splitMessage[2]);
-
-                if (orderDict.ContainsKey(identifier))
-                {
-                    orderInfo order = orderDict[identifier];
-
-                    //Check if order already exists
-                    int i = 0;
-                    foreach (orderInfo item in orderList)
-                    {
-                        if (identifier == item.OrderId)
-                        {
-                            orderList[i].Status = splitMessage[3];
-                            return;
-                        }
-                        i++;
-                    }
-                    orderList.Add(new orderInfo(identifier,order.ProductName,order.QtyOrdered,order.Status));
-                }
-                orderListChanged = true;
+                return;
             }
+            string messageCommand = message[0];
+            string messageSender = message[1];
+            string messageReceiver = message[2];
+            string messagePayload = message[3];
 
-            if (splitMessage[0] == "InventoryToClient")
+            int orderId;
+            if (messageCommand == "InventoryToClient")
             {
-                int i = 0;
-                string[] productMessageString = splitMessage[3].Split(',');
-                bool productFound = false;
-
-                //Go through each of the products sent in the message
-                for (i = 0; i < productMessageString.Length; i++)
+                bool productFound;
+                string[] productQuantities = messagePayload.Split(',');
+                // Go through each of the products sent in the payload
+                for (int i = 0; i < productQuantities.Length; i++)
                 {
-                    string[] tempProduct = productMessageString[i].Split('*');
-                    if (tempProduct.Length == 2)
+                    string[] productQuantity = productQuantities[i].Split('*');
+                    if (productQuantity.Length == 2)
                     {
-                        string productName = tempProduct[0];
-                        int qtyAvailable = Convert.ToInt32(tempProduct[1]);
+                        string product = productQuantity[0];
+                        int quantity = Convert.ToInt32(productQuantity[1]);
 
-                        //Check if prouduct already exists in product list
+                        // Check if prouduct already exists
                         int j = 0;
                         productFound = false;
-                        foreach (productInfo product in productList)
+                        foreach (ProductInfo productInfo in this.productList)
                         {
-                            if (productName == product.Name)
+                            if (productInfo.Name == product)
                             {
-                                productList[j].Quantity = qtyAvailable;
+                                this.productList[j].Quantity = quantity;
                                 productFound = true;
                             }
                             j++;
                         }
 
-                        //Add to product list if it doesn't currently exist there already
+                        // Add to product list if it does not exist
                         if (!productFound)
-                            productList.Add(new productInfo(productName, qtyAvailable));
+                            this.productList.Add(new ProductInfo(
+                                product, quantity));
                     }
                 }
-                inventoryChanged = true;
+                this.productListChanged = true;
             }
-
-            if (splitMessage[0] == "ClientDeleteProduct")
+            else if (messageCommand == "OrderToClient")
             {
-                string[] tempProduct = splitMessage[3].Split('*');
-                if (tempProduct.Length == 2)
+                orderId = Convert.ToInt32(messageReceiver);
+
+                // SEPARATE
+                int i = 0;
+                foreach (var orderInfo in this.orderList)
                 {
-                    string productName = tempProduct[0];
-                    int qtyAvailable = Convert.ToInt32(tempProduct[1]);
-
-                    //Check if prouduct exists in product list
-                    int j = 0;
-                    bool productFound = false;
-                    foreach (productInfo product in productList)
+                    if (orderInfo.Id == orderId)
                     {
-                        if (productName == product.Name)
-                        {
-                            qtyAvailable = productList[j].Quantity;
-                            productFound = true;
+                        orderList[i].Status = messagePayload;
+                        this.orderListChanged = true;
+                    }
+                    i++;
+                }
+            }
+            else if (messageCommand == "ClientDeleteProduct")
+            {
+                string[] productQuantity = messagePayload.Split('*');
+                if (productQuantity.Length == 2)
+                {
+                    string product = productQuantity[0];
 
-                            //productList.Remove(new productInfo(productName, qtyAvailable));
-                            productList.RemoveAt(j);
-                            inventoryChanged = true;
+                    //Check if prouduct exists
+                    int j = 0;
+                    foreach (ProductInfo productInfo in this.productList)
+                    {
+                        if (productInfo.Name == product)
+                        {
+                            this.productList.RemoveAt(j);
+                            this.productListChanged = true;
                             break;
                         }
                         j++;
                     }
-
-                    //Remove from product list if it currently exist
-                    /*
-                    if (productFound)
-                    {
-                        productList.Remove(new productInfo(productName, qtyAvailable));
-                        inventoryChanged = true;
-                    }
-                    */
                 }
-        }
+            }
         }
 
         private void buttonConnectServer_Click(object sender, EventArgs e)
         {
-            if (buttonConnectServer.Text == "Connect To Server")
+            if (string.IsNullOrEmpty(textBoxClientID.Text) ||
+                string.IsNullOrEmpty(textBoxIPAddr.Text) ||
+                string.IsNullOrEmpty(textBoxPort.Text))
             {
-                this.client = new SimpleTcpClient().Connect(textBoxIPAddr.Text, Convert.ToInt32(textBoxPort.Text));
+                MessageBox.Show("Please fill in infomation!");
+                return;
+            }
+
+            string serverIP;
+            int serverPort;
+            try
+            {
+                this.clientId = Convert.ToInt32(textBoxClientID.Text);
+                serverIP = textBoxIPAddr.Text;
+                serverPort = Convert.ToInt32(textBoxPort.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Error: Incorrect Server Format");
+                return;
+            }
+
+            try
+            {
+                this.client = new SimpleTcpClient().Connect(
+                    serverIP, serverPort);
                 this.client.Delimiter = 0x13;  // enter
                 this.client.StringEncoder = Encoding.UTF8;
                 this.client.DelimiterDataReceived += DataReceived;
+                sendMessage("ClientStart", this.clientId.ToString(), null,
+                    null);
 
-                this.client.WriteLine("ClientStart/" + textBoxClientID.Text + "/-/-");
-
-                buttonConnectServer.Text = "Disconnect";
+                this.isServerConnected = true;
+                buttonConnectServer.Enabled = false;
             }
-            else
+            catch (Exception)
             {
-                this.client.WriteLine("ClientStop/" + textBoxClientID.Text + "/-/-");
-                this.client.Disconnect();
-                buttonConnectServer.Text = "Connect To Server";
+                MessageBox.Show("Error: Server cannot be connected");
             }
-
         }
 
-
-		private void timer1_Tick(object sender, EventArgs e)
-		{
-            if (orderListChanged)
-            {
-                dataGridViewOrderStatus.DataSource = null;  // need this to work
-                dataGridViewOrderStatus.DataSource = this.orderList;
-
-                orderListChanged = false;
-            }
-
-            if (inventoryChanged)
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.productListChanged)
             {
                 dataGridViewInventory.DataSource = null;  // need this to work
                 dataGridViewInventory.DataSource = this.productList;
+                this.productListChanged = false;
+            }
+            if (this.orderListChanged)
+            {
+                dataGridViewOrderStatus.DataSource = null;  // need this to work
+                dataGridViewOrderStatus.DataSource = this.orderList;
+                this.orderListChanged = false;
+            }
+        }
 
-                inventoryChanged = false;
+        // TODO: Change to dropdown and combobox
+        private void buttonOrder_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxProductName.Text) ||
+                string.IsNullOrEmpty(textBoxQtyToOrder.Text))
+            {
+                MessageBox.Show("Please fill in infomation!");
+                return;
             }
 
-            
+            string product = textBoxProductName.Text;
+            int quantity;
+            try
+            {
+                quantity = Convert.ToInt32(textBoxQtyToOrder.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Error: Incorrect Quantity Format");
+                return;
+            }
+            int orderId = this.clientId * 1000 + this.orderIdCounter;
+            string payload = product + "*" + quantity.ToString();
+
+            sendMessage("OrderFromClient", orderId.ToString(), null, payload);
+
+            OrderInfo orderInfo = new OrderInfo(orderId, product, quantity, "Waiting");
+            this.orderList.Add(orderInfo);
+
+            this.orderListChanged = true;
+            this.orderIdCounter++;
         }
 
-		private void buttonOrder_Click(object sender, EventArgs e)
-		{
-            string message = "";
-            int identifier = Convert.ToInt32(textBoxClientID.Text) * 1000 + orderCounter;
-
-            orderCounter++;
-
-            //Build up message
-            message = "OrderFromClient/" + Convert.ToString(identifier) + "/-/";
-
-            if (textBoxProductName.Text != "")
-                message += textBoxProductName.Text + "*" + textBoxQtyToOrder.Text + ",";
-
-            this.client.WriteLine(message);
-
-            //Populate OrderDict 
-            orderDict.Add(identifier, new orderInfo(identifier, textBoxProductName.Text, Convert.ToInt32(textBoxQtyToOrder.Text), "Ordered"));
-            orderList.Add(new orderInfo(identifier, textBoxProductName.Text, Convert.ToInt32(textBoxQtyToOrder.Text), "Ordered"));
-
-            orderListChanged = true;
-        }
-
-	}
-
-	public class orderInfo
-    {
-        public int OrderId
-        { get; }
-
-        public string ProductName
-        { get; }
-
-        public int QtyOrdered
-        { get; }
-
-        public string Status
-        { get; set; }
-
-        public orderInfo(int combinedId, string productName, int qty, string status)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.OrderId = combinedId;
-            this.ProductName = productName;
-            this.QtyOrdered = qty;
-            this.Status = status;
-        }
-    }
-
-    public class productInfo
-    {
-
-        public string Name
-        { get; }
-
-        public int Quantity
-        { get; set; }
-
-        public productInfo(string name, int qty)
-        {
-            this.Name = name;
-            this.Quantity = qty;
+            if (isServerConnected)
+            {
+                sendMessage("ClientStop", this.clientId.ToString(), null, null);
+                this.client.Disconnect();
+            }
         }
     }
 }

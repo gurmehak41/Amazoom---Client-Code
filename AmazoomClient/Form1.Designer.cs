@@ -29,280 +29,271 @@ namespace AmazoomClient
         /// </summary>
         private void InitializeComponent()
         {
-			this.components = new System.ComponentModel.Container();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.textBoxPort = new System.Windows.Forms.TextBox();
-			this.textBoxIPAddr = new System.Windows.Forms.TextBox();
-			this.textBoxClientID = new System.Windows.Forms.TextBox();
-			this.buttonConnectServer = new System.Windows.Forms.Button();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.label8 = new System.Windows.Forms.Label();
-			this.dataGridViewOrderStatus = new System.Windows.Forms.DataGridView();
-			this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.textBoxQtyToOrder = new System.Windows.Forms.TextBox();
-			this.textBoxProductName = new System.Windows.Forms.TextBox();
-			this.buttonOrder = new System.Windows.Forms.Button();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.label2 = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderStatus)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.Green;
-			this.label1.Location = new System.Drawing.Point(158, 6);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(299, 31);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Amazoom Order Form";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(369, 49);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(92, 25);
-			this.label4.TabIndex = 6;
-			this.label4.Text = "Client ID:";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(369, 85);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(114, 25);
-			this.label5.TabIndex = 7;
-			this.label5.Text = "IP Address:";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(369, 123);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(53, 25);
-			this.label6.TabIndex = 8;
-			this.label6.Text = "Port:";
-			// 
-			// textBoxPort
-			// 
-			this.textBoxPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxPort.Location = new System.Drawing.Point(489, 123);
-			this.textBoxPort.Name = "textBoxPort";
-			this.textBoxPort.Size = new System.Drawing.Size(100, 30);
-			this.textBoxPort.TabIndex = 9;
-			// 
-			// textBoxIPAddr
-			// 
-			this.textBoxIPAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxIPAddr.Location = new System.Drawing.Point(489, 85);
-			this.textBoxIPAddr.Name = "textBoxIPAddr";
-			this.textBoxIPAddr.Size = new System.Drawing.Size(100, 30);
-			this.textBoxIPAddr.TabIndex = 10;
-			// 
-			// textBoxClientID
-			// 
-			this.textBoxClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxClientID.Location = new System.Drawing.Point(489, 49);
-			this.textBoxClientID.Name = "textBoxClientID";
-			this.textBoxClientID.Size = new System.Drawing.Size(100, 30);
-			this.textBoxClientID.TabIndex = 11;
-			// 
-			// buttonConnectServer
-			// 
-			this.buttonConnectServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonConnectServer.Location = new System.Drawing.Point(374, 159);
-			this.buttonConnectServer.Name = "buttonConnectServer";
-			this.buttonConnectServer.Size = new System.Drawing.Size(215, 37);
-			this.buttonConnectServer.TabIndex = 12;
-			this.buttonConnectServer.Text = "Connect To Server";
-			this.buttonConnectServer.UseVisualStyleBackColor = true;
-			this.buttonConnectServer.Click += new System.EventHandler(this.buttonConnectServer_Click);
-			// 
-			// timer1
-			// 
-			this.timer1.Enabled = true;
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox2.Location = new System.Drawing.Point(348, 40);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(262, 166);
-			this.pictureBox2.TabIndex = 15;
-			this.pictureBox2.TabStop = false;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(16, 221);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(129, 25);
-			this.label8.TabIndex = 16;
-			this.label8.Text = "Order Status:";
-			// 
-			// dataGridViewOrderStatus
-			// 
-			this.dataGridViewOrderStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridViewOrderStatus.Location = new System.Drawing.Point(12, 249);
-			this.dataGridViewOrderStatus.Name = "dataGridViewOrderStatus";
-			this.dataGridViewOrderStatus.RowHeadersVisible = false;
-			this.dataGridViewOrderStatus.RowHeadersWidth = 51;
-			this.dataGridViewOrderStatus.RowTemplate.Height = 24;
-			this.dataGridViewOrderStatus.Size = new System.Drawing.Size(603, 131);
-			this.dataGridViewOrderStatus.TabIndex = 17;
-			// 
-			// dataGridViewInventory
-			// 
-			this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridViewInventory.Location = new System.Drawing.Point(12, 421);
-			this.dataGridViewInventory.Name = "dataGridViewInventory";
-			this.dataGridViewInventory.RowHeadersVisible = false;
-			this.dataGridViewInventory.RowHeadersWidth = 51;
-			this.dataGridViewInventory.RowTemplate.Height = 24;
-			this.dataGridViewInventory.Size = new System.Drawing.Size(603, 151);
-			this.dataGridViewInventory.TabIndex = 18;
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(16, 53);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(142, 25);
-			this.label9.TabIndex = 19;
-			this.label9.Text = "Product Name:";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label10.Location = new System.Drawing.Point(16, 92);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(133, 25);
-			this.label10.TabIndex = 20;
-			this.label10.Text = "Qty To Order:";
-			// 
-			// textBoxQtyToOrder
-			// 
-			this.textBoxQtyToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxQtyToOrder.Location = new System.Drawing.Point(164, 89);
-			this.textBoxQtyToOrder.Name = "textBoxQtyToOrder";
-			this.textBoxQtyToOrder.Size = new System.Drawing.Size(159, 30);
-			this.textBoxQtyToOrder.TabIndex = 21;
-			// 
-			// textBoxProductName
-			// 
-			this.textBoxProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxProductName.Location = new System.Drawing.Point(164, 53);
-			this.textBoxProductName.Name = "textBoxProductName";
-			this.textBoxProductName.Size = new System.Drawing.Size(159, 30);
-			this.textBoxProductName.TabIndex = 22;
-			// 
-			// buttonOrder
-			// 
-			this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonOrder.Location = new System.Drawing.Point(23, 162);
-			this.buttonOrder.Name = "buttonOrder";
-			this.buttonOrder.Size = new System.Drawing.Size(300, 36);
-			this.buttonOrder.TabIndex = 23;
-			this.buttonOrder.Text = "Order Product";
-			this.buttonOrder.UseVisualStyleBackColor = true;
-			this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox1.Location = new System.Drawing.Point(14, 40);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(321, 168);
-			this.pictureBox1.TabIndex = 24;
-			this.pictureBox1.TabStop = false;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(16, 393);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(150, 25);
-			this.label2.TabIndex = 25;
-			this.label2.Text = "Items Available:";
-			// 
-			// Form1
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.GhostWhite;
-			this.ClientSize = new System.Drawing.Size(632, 592);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.buttonOrder);
-			this.Controls.Add(this.textBoxProductName);
-			this.Controls.Add(this.textBoxQtyToOrder);
-			this.Controls.Add(this.label10);
-			this.Controls.Add(this.label9);
-			this.Controls.Add(this.dataGridViewInventory);
-			this.Controls.Add(this.dataGridViewOrderStatus);
-			this.Controls.Add(this.label8);
-			this.Controls.Add(this.buttonConnectServer);
-			this.Controls.Add(this.textBoxClientID);
-			this.Controls.Add(this.textBoxIPAddr);
-			this.Controls.Add(this.textBoxPort);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.pictureBox2);
-			this.Controls.Add(this.pictureBox1);
-			this.Name = "Form1";
-			this.Text = "Order Form";
-			this.Load += new System.EventHandler(this.Form1_Load);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderStatus)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            this.labelClientID = new System.Windows.Forms.Label();
+            this.labelIPAddr = new System.Windows.Forms.Label();
+            this.labelPort = new System.Windows.Forms.Label();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.textBoxIPAddr = new System.Windows.Forms.TextBox();
+            this.textBoxClientID = new System.Windows.Forms.TextBox();
+            this.buttonConnectServer = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.labelOrderStatus = new System.Windows.Forms.Label();
+            this.dataGridViewOrderStatus = new System.Windows.Forms.DataGridView();
+            this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
+            this.labelProductName = new System.Windows.Forms.Label();
+            this.labelQtyToOrder = new System.Windows.Forms.Label();
+            this.textBoxQtyToOrder = new System.Windows.Forms.TextBox();
+            this.textBoxProductName = new System.Windows.Forms.TextBox();
+            this.buttonOrder = new System.Windows.Forms.Button();
+            this.labelInventory = new System.Windows.Forms.Label();
+            this.labelCustomer = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // labelClientID
+            // 
+            this.labelClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClientID.Location = new System.Drawing.Point(11, 8);
+            this.labelClientID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelClientID.Name = "labelClientID";
+            this.labelClientID.Size = new System.Drawing.Size(40, 26);
+            this.labelClientID.TabIndex = 6;
+            this.labelClientID.Text = "ID";
+            this.labelClientID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelIPAddr
+            // 
+            this.labelIPAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIPAddr.Location = new System.Drawing.Point(135, 8);
+            this.labelIPAddr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelIPAddr.Name = "labelIPAddr";
+            this.labelIPAddr.Size = new System.Drawing.Size(40, 26);
+            this.labelIPAddr.TabIndex = 7;
+            this.labelIPAddr.Text = "IP";
+            this.labelIPAddr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPort
+            // 
+            this.labelPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPort.Location = new System.Drawing.Point(259, 8);
+            this.labelPort.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPort.Name = "labelPort";
+            this.labelPort.Size = new System.Drawing.Size(40, 26);
+            this.labelPort.TabIndex = 8;
+            this.labelPort.Text = "Port";
+            this.labelPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxPort
+            // 
+            this.textBoxPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPort.Location = new System.Drawing.Point(303, 8);
+            this.textBoxPort.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(76, 26);
+            this.textBoxPort.TabIndex = 9;
+            // 
+            // textBoxIPAddr
+            // 
+            this.textBoxIPAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIPAddr.Location = new System.Drawing.Point(179, 8);
+            this.textBoxIPAddr.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxIPAddr.Name = "textBoxIPAddr";
+            this.textBoxIPAddr.Size = new System.Drawing.Size(76, 26);
+            this.textBoxIPAddr.TabIndex = 10;
+            // 
+            // textBoxClientID
+            // 
+            this.textBoxClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxClientID.Location = new System.Drawing.Point(55, 8);
+            this.textBoxClientID.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxClientID.Name = "textBoxClientID";
+            this.textBoxClientID.Size = new System.Drawing.Size(76, 26);
+            this.textBoxClientID.TabIndex = 11;
+            // 
+            // buttonConnectServer
+            // 
+            this.buttonConnectServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConnectServer.Location = new System.Drawing.Point(14, 38);
+            this.buttonConnectServer.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonConnectServer.Name = "buttonConnectServer";
+            this.buttonConnectServer.Size = new System.Drawing.Size(365, 30);
+            this.buttonConnectServer.TabIndex = 12;
+            this.buttonConnectServer.Text = "Connect To Server";
+            this.buttonConnectServer.UseVisualStyleBackColor = true;
+            this.buttonConnectServer.Click += new System.EventHandler(this.buttonConnectServer_Click);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labelOrderStatus
+            // 
+            this.labelOrderStatus.AutoSize = true;
+            this.labelOrderStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOrderStatus.Location = new System.Drawing.Point(14, 275);
+            this.labelOrderStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelOrderStatus.Name = "labelOrderStatus";
+            this.labelOrderStatus.Size = new System.Drawing.Size(82, 16);
+            this.labelOrderStatus.TabIndex = 16;
+            this.labelOrderStatus.Text = "Order Status";
+            // 
+            // dataGridViewOrderStatus
+            // 
+            this.dataGridViewOrderStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOrderStatus.Location = new System.Drawing.Point(11, 293);
+            this.dataGridViewOrderStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewOrderStatus.Name = "dataGridViewOrderStatus";
+            this.dataGridViewOrderStatus.RowHeadersVisible = false;
+            this.dataGridViewOrderStatus.RowHeadersWidth = 51;
+            this.dataGridViewOrderStatus.RowTemplate.Height = 24;
+            this.dataGridViewOrderStatus.Size = new System.Drawing.Size(368, 100);
+            this.dataGridViewOrderStatus.TabIndex = 17;
+            // 
+            // dataGridViewInventory
+            // 
+            this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInventory.Location = new System.Drawing.Point(14, 173);
+            this.dataGridViewInventory.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewInventory.Name = "dataGridViewInventory";
+            this.dataGridViewInventory.RowHeadersVisible = false;
+            this.dataGridViewInventory.RowHeadersWidth = 51;
+            this.dataGridViewInventory.RowTemplate.Height = 24;
+            this.dataGridViewInventory.Size = new System.Drawing.Size(365, 100);
+            this.dataGridViewInventory.TabIndex = 18;
+            // 
+            // labelProductName
+            // 
+            this.labelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductName.Location = new System.Drawing.Point(14, 96);
+            this.labelProductName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProductName.Name = "labelProductName";
+            this.labelProductName.Size = new System.Drawing.Size(60, 26);
+            this.labelProductName.TabIndex = 19;
+            this.labelProductName.Text = "Product";
+            this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelQtyToOrder
+            // 
+            this.labelQtyToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQtyToOrder.Location = new System.Drawing.Point(215, 96);
+            this.labelQtyToOrder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQtyToOrder.Name = "labelQtyToOrder";
+            this.labelQtyToOrder.Size = new System.Drawing.Size(60, 26);
+            this.labelQtyToOrder.TabIndex = 20;
+            this.labelQtyToOrder.Text = "Qty";
+            this.labelQtyToOrder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxQtyToOrder
+            // 
+            this.textBoxQtyToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxQtyToOrder.Location = new System.Drawing.Point(279, 98);
+            this.textBoxQtyToOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxQtyToOrder.Name = "textBoxQtyToOrder";
+            this.textBoxQtyToOrder.Size = new System.Drawing.Size(100, 22);
+            this.textBoxQtyToOrder.TabIndex = 21;
+            // 
+            // textBoxProductName
+            // 
+            this.textBoxProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProductName.Location = new System.Drawing.Point(78, 98);
+            this.textBoxProductName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxProductName.Name = "textBoxProductName";
+            this.textBoxProductName.Size = new System.Drawing.Size(100, 22);
+            this.textBoxProductName.TabIndex = 22;
+            // 
+            // buttonOrder
+            // 
+            this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOrder.Location = new System.Drawing.Point(14, 124);
+            this.buttonOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonOrder.Name = "buttonOrder";
+            this.buttonOrder.Size = new System.Drawing.Size(365, 29);
+            this.buttonOrder.TabIndex = 23;
+            this.buttonOrder.Text = "Order Product";
+            this.buttonOrder.UseVisualStyleBackColor = true;
+            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
+            // 
+            // labelInventory
+            // 
+            this.labelInventory.AutoSize = true;
+            this.labelInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInventory.Location = new System.Drawing.Point(13, 155);
+            this.labelInventory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelInventory.Name = "labelInventory";
+            this.labelInventory.Size = new System.Drawing.Size(100, 16);
+            this.labelInventory.TabIndex = 25;
+            this.labelInventory.Text = "Items Available";
+            // 
+            // labelCustomer
+            // 
+            this.labelCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCustomer.Location = new System.Drawing.Point(14, 70);
+            this.labelCustomer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCustomer.Name = "labelCustomer";
+            this.labelCustomer.Size = new System.Drawing.Size(365, 26);
+            this.labelCustomer.TabIndex = 26;
+            this.labelCustomer.Text = "Please place your order here";
+            this.labelCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
+            this.ClientSize = new System.Drawing.Size(394, 401);
+            this.Controls.Add(this.labelCustomer);
+            this.Controls.Add(this.labelInventory);
+            this.Controls.Add(this.buttonOrder);
+            this.Controls.Add(this.textBoxProductName);
+            this.Controls.Add(this.textBoxQtyToOrder);
+            this.Controls.Add(this.labelQtyToOrder);
+            this.Controls.Add(this.labelProductName);
+            this.Controls.Add(this.dataGridViewInventory);
+            this.Controls.Add(this.dataGridViewOrderStatus);
+            this.Controls.Add(this.labelOrderStatus);
+            this.Controls.Add(this.buttonConnectServer);
+            this.Controls.Add(this.textBoxClientID);
+            this.Controls.Add(this.textBoxIPAddr);
+            this.Controls.Add(this.textBoxPort);
+            this.Controls.Add(this.labelPort);
+            this.Controls.Add(this.labelIPAddr);
+            this.Controls.Add(this.labelClientID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Form1";
+            this.Text = "Amazoom Order Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
 		#endregion
-
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label labelClientID;
+		private System.Windows.Forms.Label labelIPAddr;
+		private System.Windows.Forms.Label labelPort;
 		private System.Windows.Forms.TextBox textBoxPort;
 		private System.Windows.Forms.TextBox textBoxIPAddr;
 		private System.Windows.Forms.TextBox textBoxClientID;
 		private System.Windows.Forms.Button buttonConnectServer;
-		private System.Windows.Forms.Timer timer1;
-		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Timer timer;
+		private System.Windows.Forms.Label labelOrderStatus;
 		private System.Windows.Forms.DataGridView dataGridViewOrderStatus;
 		private System.Windows.Forms.DataGridView dataGridViewInventory;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label labelProductName;
+		private System.Windows.Forms.Label labelQtyToOrder;
 		private System.Windows.Forms.TextBox textBoxQtyToOrder;
 		private System.Windows.Forms.TextBox textBoxProductName;
 		private System.Windows.Forms.Button buttonOrder;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Label label2;
-	}
+		private System.Windows.Forms.Label labelInventory;
+        private System.Windows.Forms.Label labelCustomer;
+    }
 }
 
