@@ -247,7 +247,7 @@ namespace AmazoomClient
                 {
                     temp.Add(orderInfo);
                 }
-                dataGridViewInventory.DataSource = temp;
+                dataGridViewOrderStatus.DataSource = temp;
                 this.orderListChanged = false;
             }
         }
